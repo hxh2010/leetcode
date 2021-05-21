@@ -60,6 +60,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/interface-name-prefix': 0,
     'no-var': 0,
+    '@typescript-eslint/no-var-requires': 0,
   },
   settings: {
     'import/parsers': {
