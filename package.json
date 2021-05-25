@@ -1,7 +1,7 @@
 {
   "name": "leetcode",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/recursion/index.js",
   "repository": "git@github.com:/hxh2010/Collecting.git",
   "author": "xinhai <316020201@qq.com>",
   "license": "MIT",
