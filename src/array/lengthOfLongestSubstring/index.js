@@ -16,6 +16,25 @@
  * @return {number}
  */
 const lengthOfLongestSubstring = (s) => {
+  const arr = s.split('');
+  const map = new Map();
+  let start = 0;
+  let ret = 0;
+
+  for (let end = 0; end < arr.length; end++) {
+    if (map.has(arr[end])) {
+      start = Math.max(start, map.get(arr[end]));
+    }
+    ret = Math.max(ret, end - start + 1);
+    map.set(arr[end], end + 1);
+  }
+
+  return ret;
+};
+
+lengthOfLongestSubstring(' ');
+
+const lengthOfLongestSubstring2 = (s) => {
   let ret = 0;
   const res = [];
   for (let i = 0; i < s.length; i++) {

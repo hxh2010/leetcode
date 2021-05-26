@@ -61,9 +61,8 @@ const fourSum = function (nums, target) {
 
   return ret;
 };
-// [-4.-1,-1,0,1,2
-const a = fourSum([-1, 0, 1, 2, -1, -4], -1);
-console.log(a);
+
+console.log(fourSum([-1, 0, 1, 2, -1, -4], -1));
 console.log(fourSum([0, 0, 0, 0], 0));
 console.log(fourSum([0, 0, 0, 0], -1));
 console.log(fourSum([1, -2, -5, -4, -3, 3, 3, 5], -11));

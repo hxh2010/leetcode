@@ -60,3 +60,21 @@ function anm2(arr, m) {
 }
 
 // console.log(anm2([1, 2, 3, 4], 3));
+
+/**
+ * 取不重复的组合
+ * 返回[ 'a','b','ab','c','ac','bc','abc','d','ad','bd','abd','cd','acd','bcd','abcd' ]
+ * @type {string[]}
+ */
+function getGroup(data, index = 0, group = []) {
+  const need = [];
+  need.push(data[index]);
+  for (let i = 0; i < group.length; i++) {
+    need.push(group[i] + data[index]);
+  }
+  group = group.concat(need);
+  if (index + 1 >= data.length) return group;
+  return getGroup(data, index + 1, group);
+}
+
+console.dir(getGroup(['a', 'b', 'c', 'd']));
