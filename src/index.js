@@ -32,17 +32,5 @@ function tree(arr) {
   });
 }
 
-var b = [
-  { id: 1, count: 0 },
-  {
-    id: 2,
-    children: [
-      { id: 3, count: 0 },
-      { id: 4, children: [{ id: 5, count: 0 }], count: 1 },
-    ],
-    count: 2,
-  },
-];
-
 tree(a);
 console.log(JSON.stringify(a));
