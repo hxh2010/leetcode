@@ -1,27 +1,3 @@
-const strStr = (str) => {
-  const ret = [];
-  const arr = str.toString().split('');
-  const { length } = arr;
-  let i = 0;
-
-  while (i < length) {
-    let num = 1;
-    const t = arr[i];
-    for (let j = i + 1; j < length; j++) {
-      if (t === arr[j]) {
-        num += 1;
-      } else {
-        break;
-      }
-    }
-    ret.push(num);
-    ret.push(t);
-    i += num;
-  }
-
-  return ret.join('');
-};
-
 /**
  * 给定一个正整数 n ，输出外观数列的第 n 项。
  * 1.     1
@@ -41,37 +17,32 @@ const countAndSay = (n) => {
   if (n === 1) {
     return '1';
   }
+
+  const strStr = (str) => {
+    const ret = [];
+    const arr = str.toString().split('');
+    const { length } = arr;
+    let i = 0;
+
+    while (i < length) {
+      let num = 1;
+      const t = arr[i];
+      for (let j = i + 1; j < length; j++) {
+        if (t === arr[j]) {
+          num += 1;
+        } else {
+          break;
+        }
+      }
+      ret.push(num);
+      ret.push(t);
+      i += num;
+    }
+
+    return ret.join('');
+  };
+
   return strStr(countAndSay(n - 1));
 };
 
-var longestCommonPrefix = function (strs) {
-  if (strs.length === 0) {
-    return '';
-  }
-
-  if (strs.length === 1) {
-    return strs[0];
-  }
-
-  const { length } = strs;
-  let temp = strs[0];
-  if (temp === '') {
-    return '';
-  }
-  temp = temp.split('');
-  const ret = [];
-
-  for (let i = 0; i < temp.length; i++) {
-    const t = temp[i];
-    for (let j = 0; j < length; j++) {
-      if (strs[j].length < i || strs[j][i] !== t) {
-        return ret.join('');
-      }
-    }
-    ret.push(t);
-  }
-
-  return ret.join('');
-};
-
-console.log(longestCommonPrefix(['aa', 'aa']));
+console.log(countAndSay(5));
