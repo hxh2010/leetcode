@@ -6,7 +6,7 @@
  * @return {number}
  */
 // 贪心算法
-var maxProfit = (prices) => {
+const maxProfit = (prices) => {
   if (prices.length === 0) {
     return 0;
   }
@@ -23,9 +23,9 @@ var maxProfit = (prices) => {
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit2 = (prices) => {
-  var list = [];
-  var t = [];
+const maxProfit2 = (prices) => {
+  const list = [];
+  let t = [];
   for (let i = 0; i < prices.length; i++) {
     t = [];
     for (let j = i + 1; j < prices.length; j++) {
@@ -40,7 +40,7 @@ var maxProfit2 = (prices) => {
   return list.length ? Math.max(...list) : 0;
 };
 
-var maxProfit3 = (prices) => {
+const maxProfit3 = (prices) => {
   if (prices == null || prices.length === 0) {
     return 0;
   }

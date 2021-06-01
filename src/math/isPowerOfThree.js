@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {boolean}
  */
-var isPowerOfThree = function (n) {
+const isPowerOfThree = function (n) {
   if (n <= 0) return false;
   if (n === 1) return true;
 
@@ -15,11 +15,11 @@ var isPowerOfThree = function (n) {
   return fn(n);
 };
 
-var isPowerOfThree2 = function (n) {
+const isPowerOfThree2 = function (n) {
   return n > 0 && (n === 1 || (n % 3 === 0 && isPowerOfThree(n / 3)));
 };
 
-var isPowerOfThree3 = function (n) {
+const isPowerOfThree3 = function (n) {
   const x = Math.log10(n);
   const y = Math.log10(3);
   console.log(x, y, x / y);

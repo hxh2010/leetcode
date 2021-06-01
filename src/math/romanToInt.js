@@ -11,7 +11,7 @@
  * @param {string} s
  * @return {number}
  */
-var romanToInt = (s) => {
+const romanToInt = (s) => {
   const obj = {
     I: 1,
     IV: 4,

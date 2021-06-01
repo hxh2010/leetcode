@@ -90,3 +90,4 @@ const fib = function (n) {
 };
 
 console.log('--------------------fib------------------');
+console.log(fib(10));

@@ -9,28 +9,30 @@
  * 那么，我们就可以根据细胞状态设定函数。分析每一个状态的来源是哪里即可。
  * 容器中存活的细胞数目就是a、b、c三种状态数量的总和。
  * */
-const bfib = function (n) {
+const bCells = (n) => {
   if (n === 0) {
     return 0;
   } // 一个小时之后才会生成
   // eslint-disable-next-line @typescript-eslint/no-use-before-define,no-use-before-define
-  return afib(n - 1);
+  return aCells(n - 1);
 };
-const cfib = function (n) {
+
+const cCells = (n) => {
   if (n === 0 || n === 1) {
     return 0;
   } // 前两小时还没生成
-  return bfib(n - 1);
+  return bCells(n - 1);
 };
-const afib = function (n) {
+
+const aCells = (n) => {
   if (n === 0) {
     return 1;
   } // 初始的那个细胞
-  return afib(n - 1) + bfib(n - 1) + cfib(n - 1);
+  return aCells(n - 1) + bCells(n - 1) + cCells(n - 1);
 };
 
 const time = 4;
-console.log('afib', afib(time));
-console.log('bfib', bfib(time));
-console.log('cfib', cfib(time));
-console.log(afib(time) + bfib(time) + cfib(time));
+console.log('aCells:', aCells(time));
+console.log('bCells:', bCells(time));
+console.log('cCells:', cCells(time));
+console.log(aCells(time) + bCells(time) + cCells(time));

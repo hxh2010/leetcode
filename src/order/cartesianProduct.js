@@ -3,7 +3,7 @@
  * @param array
  * @returns {*|*[]|(function(*, *): *[])}
  */
-function calcDescartes(...array) {
+const calcDescartes = (...array) => {
   if (array.length < 2) return array[0] || [];
   const ret = array.reduce((col, set) => {
     const res = [];
@@ -18,5 +18,5 @@ function calcDescartes(...array) {
   });
   console.log(ret);
   return ret;
-}
+};
 calcDescartes([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);

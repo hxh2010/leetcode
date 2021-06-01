@@ -10,7 +10,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = (root) => {
+const maxDepth = (root) => {
   console.log(root);
   console.log('-----');
   return !root ? 0 : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;

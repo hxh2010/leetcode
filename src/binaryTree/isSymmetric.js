@@ -11,7 +11,7 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isSymmetric = (root) => {
+const isSymmetric = (root) => {
   const check = (p, q) => {
     if (!p && !q) return true;
     if (!p || !q) return false;

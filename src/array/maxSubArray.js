@@ -3,7 +3,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubArray = function (nums) {
+const maxSubArray = function (nums) {
   let pre = nums[0];
   let cur;
   let max = pre;

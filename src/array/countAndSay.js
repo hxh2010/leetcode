@@ -45,4 +45,4 @@ const countAndSay = (n) => {
   return strStr(countAndSay(n - 1));
 };
 
-console.log(countAndSay(5));
+console.log(countAndSay(6));

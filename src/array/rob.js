@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var rob = (nums) => {
+const rob = (nums) => {
   const n = nums.length;
 
   if (n === 0) {
@@ -24,7 +24,7 @@ var rob = (nums) => {
   return states[n - 1];
 };
 
-var rob2 = (nums) => {
+const rob2 = (nums) => {
   const n = nums.length;
 
   if (n === 0) {
@@ -50,7 +50,7 @@ var rob2 = (nums) => {
   return r;
 };
 
-var rob3 = (nums) => {
+const rob3 = (nums) => {
   const n = nums.length;
 
   if (n === 0) {
@@ -72,7 +72,7 @@ var rob3 = (nums) => {
   return b;
 };
 
-var test = [1, 2, 3, 1];
+const test = [1, 2, 3, 1];
 console.log(rob(test));
 console.log(rob2(test));
 console.log(rob3(test));

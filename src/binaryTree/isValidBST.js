@@ -14,8 +14,8 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = (root) => {
-  var isValidBST1 = (value, minVal, maxVal) => {
+const isValidBST = (root) => {
+  const isValidBST1 = (value, minVal, maxVal) => {
     if (value == null) return true;
     // 每个节点如果超过这个范围，直接返回false
     if (value.val >= maxVal || value.val <= minVal) return false;
@@ -32,7 +32,7 @@ var isValidBST = (root) => {
 };
 
 // 前序
-var isValidBST2 = (root) => {
+const isValidBST2 = (root) => {
   if (root) {
     return [root.val, ...isValidBST2(root.left), ...isValidBST2(root.right)];
   }
@@ -40,7 +40,7 @@ var isValidBST2 = (root) => {
 };
 
 // 中序
-var isValidBST3 = (root) => {
+const isValidBST3 = (root) => {
   if (root) {
     return [...isValidBST3(root.left), root.val, ...isValidBST3(root.right)];
   }
@@ -48,7 +48,7 @@ var isValidBST3 = (root) => {
 };
 
 // 后序
-var isValidBST4 = (root) => {
+const isValidBST4 = (root) => {
   if (root) {
     return [...isValidBST4(root.left), ...isValidBST4(root.right), root.val];
   }
@@ -87,15 +87,15 @@ console.log(
   }),
 );
 
-var isSymmetric = function (root) {
-  var center = (value) => {
+const isSymmetric = function (root) {
+  const center = (value) => {
     if (value) {
       return [...center(value.left), value.val, ...center(value.right)];
     }
     return [];
   };
 
-  var fn = (arr) => {
+  const fn = (arr) => {
     const { length } = arr;
     if (length % 2 === 0) {
       return false;

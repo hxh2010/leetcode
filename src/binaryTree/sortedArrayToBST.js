@@ -10,7 +10,7 @@
  * @param {number[]} nums
  * @return {{val, left: undefined, right: undefined}}
  */
-var sortedArrayToBST = function (nums) {
+const sortedArrayToBST = function (nums) {
   const buildBST = (nums, start, end) => {
     if (start > end) {
       // 构成不了区间

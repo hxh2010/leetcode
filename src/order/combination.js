@@ -7,7 +7,7 @@
  * @param m 需要取的元素个数
  * @returns {*[]} 返回所有组合
  */
-function anm(arr, m) {
+const anm = (arr, m) => {
   let c = 0;
   const r = [];
   (function fn(s, num) {
@@ -25,7 +25,7 @@ function anm(arr, m) {
   })([], m);
   console.log('总共：', c);
   return r;
-}
+};
 const ret = anm([1, 2, 3, 4], 3);
 
 console.log(ret);
@@ -41,7 +41,7 @@ console.log('----------------------------------------');
  * @param m 需要取的元素个数
  * @returns {*[]} 返回所有组合
  */
-function anm2(arr, m) {
+const anm2 = (arr, m) => {
   const all = [];
   (function fn(source, result) {
     if (result.length === m) {
@@ -57,7 +57,7 @@ function anm2(arr, m) {
     }
   })(arr, []);
   return all;
-}
+};
 
 // console.log(anm2([1, 2, 3, 4], 3));
 
@@ -66,7 +66,7 @@ function anm2(arr, m) {
  * 返回[ 'a','b','ab','c','ac','bc','abc','d','ad','bd','abd','cd','acd','bcd','abcd' ]
  * @type {string[]}
  */
-function getGroup(data, index = 0, group = []) {
+const getGroup = (data, index = 0, group = []) => {
   const need = [];
   need.push(data[index]);
   for (let i = 0; i < group.length; i++) {
@@ -75,6 +75,6 @@ function getGroup(data, index = 0, group = []) {
   group = group.concat(need);
   if (index + 1 >= data.length) return group;
   return getGroup(data, index + 1, group);
-}
+};
 
 console.dir(getGroup(['a', 'b', 'c', 'd']));

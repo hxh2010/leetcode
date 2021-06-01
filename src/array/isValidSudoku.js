@@ -7,7 +7,7 @@
  * @param {character[][]} board
  * @return {boolean}
  */
-var isValidSudoku = (board) => {
+const isValidSudoku = (board) => {
   // 步骤 1：初始化横、纵以及小九宫格
   const rows = [[], [], [], [], [], [], [], [], []];
   const columns = [[], [], [], [], [], [], [], [], []];

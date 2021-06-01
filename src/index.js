@@ -1,6 +1,6 @@
 console.log('hello leetcode');
 
-var a = [
+const a = [
   {
     id: 1,
   },

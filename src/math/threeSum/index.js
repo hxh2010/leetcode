@@ -7,12 +7,11 @@
  *  [-1, 0, 1],
  *  [-1, -1, 2]
  * ]
+ * 排序 + 双指针
  * @param {number[]} nums
  * @return {number[][]}
  */
-
-// 排序 + 双指针
-const threeSum = function (nums) {
+const threeSum = (nums) => {
   const result = [];
   let start;
   let end;

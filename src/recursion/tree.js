@@ -1,4 +1,4 @@
-function sonsTree(t, list) {
+const sonsTree = (t, list) => {
   const children = [];
   list.forEach((d) => {
     if (d.pid === t.id) {
@@ -9,20 +9,20 @@ function sonsTree(t, list) {
   });
   t.children = children;
   return t;
-}
+};
 
-function treeUtils(list) {
-  const ptree = [];
+const treeUtils = (list) => {
+  const pTree = [];
   const map = new Map();
   list.forEach((d) => {
     map.set(d.id, d);
   });
   list.forEach((d) => {
-    if (!map.has(d.pid)) ptree.push(sonsTree(d, list));
+    if (!map.has(d.pid)) pTree.push(sonsTree(d, list));
   });
-  console.info(ptree);
-  return ptree;
-}
+  console.info(pTree);
+  return pTree;
+};
 
 const trees = treeUtils([]);
 console.log(trees);
