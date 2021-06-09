@@ -1,52 +1,30 @@
 function curry(func) {
-  console.log('-----', func.length);
   return function curried(...args) {
     if (args.length >= func.length) {
-      // eslint-disable-next-line prefer-spread
-      return func.apply(null, args);
+      return func.apply({}, args);
     }
-    return function (args2) {
-      // eslint-disable-next-line prefer-spread
-      return curried.apply(null, args.concat(args2));
+    return (...args2) => {
+      return curried.apply({}, args.concat(args2));
     };
   };
 }
 
-const temp = (a, b, c) => {
-  // return args.reduce((a, b) => {
-  //   if (typeof b === 'function') {
-  //     return b() + a;
-  //   }
-  //   return b + a;
-  // }, 0);
-  // return args.reduce((a, b) => a + b);
+const add = (a, b, c) => {
   return a + b + c;
 };
 
-const computed = curry(temp);
+const computed = curry(add);
+console.log(computed(1, 2)(3));
+console.log(computed(1)(2)(3));
+console.log(computed(1, 2, 3));
+console.log(computed(1)(2, 3));
 
-const mul = (num) => -1 * num;
-
-const add = (num) => num;
-
-// const a = computed(2, 5)(4);
-// console.log(a);
-
-const cs =
-  (f, args1 = []) =>
-  (...args2) => {
-    const args = [...args1, ...args2];
-    return f.length === args.length ? f(...args) : cs(f, args);
-  };
-
-function curry5(func) {
+function curryAdd(func) {
   let argArr = [];
-  // eslint-disable-next-line no-shadow
   return function temp(...args) {
     if (!args.length) {
-      // eslint-disable-next-line prefer-spread
-      const result = func.apply(null, argArr);
-      argArr = []; // 保证下次调用
+      const result = func.apply({}, argArr);
+      argArr = [];
       return result;
     }
     argArr = argArr.concat(args);
@@ -54,9 +32,24 @@ function curry5(func) {
   };
 }
 
-function add5(...args) {
+function addAll(...args) {
   return args.reduce((a, b) => a + b);
 }
-const ca = curry5(add5);
-const ca2 = curry(add5);
-console.log(ca(1)(2)(3)(4, 5, 5)());
+const curryAddAll = curryAdd(addAll);
+const curryAddAll2 = curryAdd(add);
+console.log(curryAddAll2(1, 2, 19)(11)());
+console.log(curryAddAll(1)(2)(3)(4, 5, 5)());
+console.log(curryAddAll(1)(2)(3)(4, 5, 5, 1)());
+console.log(curryAddAll(1)(2)(3)(4, 5, 5, 1, 2, 3)(1)());
+
+// 反柯里化
+function uncurry(fn) {
+  // eslint-disable-next-line prefer-rest-params
+  let args = [].slice.call(arguments, 1);
+  return function () {
+    // eslint-disable-next-line prefer-rest-params
+    const arg = [].slice.call(arguments);
+    args = args.concat(arg);
+    return fn.apply(this, args);
+  };
+}
