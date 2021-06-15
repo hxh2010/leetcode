@@ -49,7 +49,7 @@ console.log(objClone);
  * @param cache
  * @returns {{}|any}
  */
-function deepCloneAll(target, cache = new Map()) {
+function deepClone2(target, cache = new Map()) {
   if (cache.get(target)) {
     return cache.get(target);
   }
@@ -79,7 +79,7 @@ function deepCloneAll(target, cache = new Map()) {
     for (const key in target) {
       // 过滤掉原型身上的属性
       if (target.hasOwnProperty(key)) {
-        dist[key] = deepClone(target[key], cache);
+        dist[key] = deepClone2(target[key], cache);
       }
     }
     return dist;

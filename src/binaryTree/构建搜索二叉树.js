@@ -28,3 +28,5 @@ const sortedArrayToBST = function (nums) {
 
   return buildBST(nums, 0, nums.length - 1); // 递归的入口
 };
+
+console.log(sortedArrayToBST([2, 3, 4, 5, 6]));
