@@ -1,36 +1,21 @@
 console.log('hello leetcode');
 
-const a = [
-  {
-    id: 1,
-  },
-  {
-    id: 2,
-    children: [
-      {
-        id: 3,
-      },
-      {
-        id: 4,
-        children: [
-          {
-            id: 5,
-          },
-        ],
-      },
-    ],
-  },
-];
+var a = new Promise((r) => {
+  console.log(1);
+  r(2);
+  r(3);
+});
 
-function tree(arr) {
-  arr.forEach((d) => {
-    d.count = 0;
-    if (d.children) {
-      d.count = d.children.length;
-      tree(d.children);
-    }
-  });
-}
+a.then((v) => {
+  console.log('1', v); // 1
+}).then((v) => {
+  console.log('1', v); // 1
+});
 
-tree(a);
-console.log(JSON.stringify(a));
+// var p = Promise.resolve(a);
+// console.log(p);
+// p.then((v) => {
+//   console.log(v); // 1
+// }).then((v) => {
+//   console.log(v); // 1
+// });
