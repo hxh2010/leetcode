@@ -47,5 +47,5 @@ const threeSum = (nums) => {
   }
   return result;
 };
-
+console.log(threeSum([0, 0, 0]));
 module.exports = threeSum;

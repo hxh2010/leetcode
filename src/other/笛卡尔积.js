@@ -19,4 +19,4 @@ const calcDescartes = (...array) => {
   console.log(ret);
   return ret;
 };
-// calcDescartes([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
+calcDescartes([1, 2, 3], [4, 5, 6]);
