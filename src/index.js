@@ -59,35 +59,52 @@ var findWords = function (board, words) {
   return [...results];
 };
 
-var threeSum = function (nums, target) {
-  let ret = Infinity;
-  const map = new Map();
-  nums.sort((a, b) => a - b);
+var permute = function (nums) {
+  const ret = [];
+  const len = nums.length;
 
-  console.log(nums);
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[i - 1]) {
-      let s = i + 1;
-      let e = nums.length - 1;
-      while (e > s) {
-        const t = nums[s] + nums[e] + nums[i];
-        const a = Math.abs(target - t);
-        map.set(a, t);
-        if (s !== i && e !== i && t === target) {
-          return t;
+  function fn(arr) {
+    for (let i = 0; i < len; i++) {
+      if (arr.length === len - 1) {
+        if (!arr.includes(nums[i])) {
+          ret.push([...arr, nums[i]]);
         }
-        if (t > target) {
-          ret = Math.min(a, ret);
-          e -= 1;
-        } else {
-          ret = Math.min(a, ret);
-          s += 1;
-        }
+      } else if (arr.indexOf(nums[i]) < 0) {
+        fn([...arr, nums[i]]);
       }
     }
   }
 
-  return map.get(ret);
+  fn([]);
+
+  return ret;
 };
 
-console.log(threeSum([-1, 2, 1, -4], 1));
+var permute2 = (nums) => {
+  const res = [];
+  const path = [];
+  const k = nums.length;
+
+  function backtracking(used = []) {
+    console.log(used);
+    if (path.length === k) {
+      res.push(Array.from(path));
+      return;
+    }
+    for (let i = 0; i < k; i++) {
+      console.log('111', [...used], i, k);
+      if (!used[i]) {
+        path.push(nums[i]);
+        used[i] = true; // 同支
+        backtracking(used);
+        path.pop();
+        used[i] = false;
+      }
+    }
+  }
+
+  backtracking();
+  return res;
+};
+
+console.log(permute2([1, 2, 3]));

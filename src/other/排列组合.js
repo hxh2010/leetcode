@@ -26,7 +26,7 @@ const anm = (arr, m) => {
   console.log('总共：', c);
   return r;
 };
-const ret = anm([1, 2, 3, 4], 3);
+const ret = anm([1, 2, 3], 3);
 
 console.log(ret);
 console.log('----------------------------------------');
@@ -77,4 +77,4 @@ const getGroup = (data, index = 0, group = []) => {
   return getGroup(data, index + 1, group);
 };
 
-console.dir(getGroup(['a', 'b', 'c', 'd']));
+// console.dir(getGroup(['a', 'b', 'c', 'd']));

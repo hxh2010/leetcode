@@ -6,6 +6,7 @@
  * @param {string} s
  * @return {string}
  */
+// dp
 var longestPalindrome = function (s) {
   if (s.length < 2) {
     return s;
@@ -30,4 +31,38 @@ var longestPalindrome = function (s) {
   return res;
 };
 
-console.log(longestPalindrome('badad'));
+// 中心拓展法
+var longestPalindrome2 = function (s) {
+  if (s.length < 2) {
+    return s;
+  }
+
+  let res = '';
+  const len = s.length;
+
+  function helper(m, n) {
+    console.log('1', m, n);
+    while (m >= 0 && n < len && s[m] === s[n]) {
+      m -= 1;
+      n += 1;
+    }
+
+    // 注意此处m,n的值循环完后  是恰好不满足循环条件的时刻
+    // 此时m到n的距离为n-m+1，但是mn两个边界不能取 所以应该取m+1到n-1的区间  长度是n-m-1
+    if (n - m - 1 > res.length) {
+      // slice也要取[m+1,n-1]这个区间
+      res = s.slice(m + 1, n);
+    }
+    // console.log('2', m, n, res);
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    // 回文子串长度是奇数
+    helper(i, i);
+    // 回文子串长度是偶数
+    helper(i, i + 1);
+  }
+  return res;
+};
+
+console.log(longestPalindrome2('badad'));
